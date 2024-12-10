@@ -39,13 +39,12 @@ INSERT INTO `country` (`Id`, `Name`, `CapitalCity`, `Continent`, `Population`, `
 (1, 'Nederland', 'Amsterdam', 'Europa', 18000000, '2309CB'),
 (2, 'Argentini&euml;', 'Buenos Aires', 'Zuid-Amerika', 429496729, '2309CC'),
 (4, 'Japan', 'Tokio', 'Azi&euml;', 125700000, '8761EE'),
-(5, 'Zwitserlandd', 'Bern', 'Europa', 8703000, '2345RR'),
+(5, 'Zwitserland', 'Bern', 'Europa', 8703000, '2345RR'),
 (6, 'Noorwegen', 'Oslo', 'Europa', 5550203, '2314UT'),
-(11, 'Litouwen', 'Vilnius', 'Europa', 340000000, '9382YY'),
+(11, 'Litouwen', 'Vilnius', 'Europa', 3400000, '9382YY'), -- Corrected population
 (15, 'Marokko', 'Rabat', 'Afrika', 37500000, '1243HH'),
 (16, 'Nepal', 'Kathmandu', 'Azi&euml;', 30000000, '6534GG'),
-(17, 'Chili', 'Santiago', 'Zuid-Amerika', 18276870, '8347AA'),
-(18, 'Japan', 'Tokio', 'Azi&euml;', 125700000, '2342TT');
+(17, 'Chili', 'Santiago', 'Zuid-Amerika', 18276870, '8347AA');
 
 -- Tabelstructuur voor tabel `Product`
 DROP TABLE IF EXISTS Product;
@@ -62,20 +61,20 @@ CREATE TABLE IF NOT EXISTS Product (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Gegevens worden geëxporteerd voor tabel `Product`
-INSERT INTO `Product` (`Naam`, `Barcode`, `Verpakkingseenheid`, `IsActief`, `Opmerkingen`, `DatumAangemaakt`, `DatumGewijzigd`) VALUES
-('Mintnopjes', '8719587231278', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Schoolkrijt', '8719587326713', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Honingdrop', '8719587327836', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Zure Beren', '8719587321441', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Cola Flesjes', '8719587321237', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Turtles', '8719587322245', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Witte Muizen', '8719587328256', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Reuzen Slangen', '8719587325641', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Zoute Rijen', '8719587322739', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Winegums', '8719587327527', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Drop Munten', '8719587322345', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Kruis Drop', '8719587322265', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
-('Zoute Ruitjes', '8719587323256', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6));
+INSERT INTO `Product` (`Id`, `Naam`, `Barcode`, `Verpakkingseenheid`, `IsActief`, `Opmerkingen`, `DatumAangemaakt`, `DatumGewijzigd`) VALUES
+(1, 'Mintnopjes', '8719587231278', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(2, 'Schoolkrijt', '8719587326713', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(3, 'Honingdrop', '8719587327836', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(4, 'Zure Beren', '8719587321441', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),  
+(5, 'Cola Flesjes', '8719587321237', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(6, 'Turtles', '8719587322245', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(7, 'Witte Muizen', '8719587328256', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(8, 'Reuzen Slangen', '8719587325641', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(9, 'Zoute Rijen', '8719587322739', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(10, 'Drop Munten', '8719587322345', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(11, 'Kruis Drop', '8719587322265', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(12, 'Zoute Ruitjes', '8719587323256', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6)),
+(13, 'Winegums', '8719587323267', 'Stuk', 1, NULL, SYSDATE(6), SYSDATE(6));
 
 -- Tabelstructuur voor tabel `Allergeen`
 DROP TABLE IF EXISTS Allergeen;
@@ -114,10 +113,10 @@ INSERT INTO `ProductPerAllergeen` (`Id`, `ProductId`, `AllergeenId`) VALUES
 (6, 9, 2),
 (7, 9, 5),
 (8, 10, 2),
-(9, 12, 4),
-(10, 13, 1),
-(11, 13, 4),
-(12, 13, 5);
+(9, 11, 4), -- Corrected ProductId
+(10, 12, 1), -- Corrected ProductId
+(11, 12, 4), -- Corrected ProductId
+(12, 12, 5); -- Corrected ProductId
 
 -- Tabelstructuur voor tabel `Magazijn`
 DROP TABLE IF EXISTS Magazijn;
@@ -181,7 +180,7 @@ CREATE TABLE IF NOT EXISTS ProductPerLeverancier (
   `ProductId` MEDIUMINT UNSIGNED NOT NULL,
   `DatumLevering` DATE NOT NULL,
   `Aantal` INT UNSIGNED NOT NULL,
-  `DatumEerstVolgendeLevering` DATE NOT NULL,
+  `DatumEerstVolgendeLevering` DATE DEFAULT NULL,
   `IsActief` BIT NOT NULL DEFAULT 1,
   `Opmerkingen` VARCHAR(255) DEFAULT NULL,
   `DatumAangemaakt` DATETIME(6) NOT NULL,
@@ -211,9 +210,12 @@ INSERT INTO `ProductPerLeverancier` (`LeverancierId`, `ProductId`, `DatumLeverin
 (5, 12, '2024-10-11', 45, NULL, 1, NULL, SYSDATE(6), SYSDATE(6)),
 (5, 13, '2024-10-12', 23, NULL, 1, NULL, SYSDATE(6), SYSDATE(6));
 
--- Stored Procedure voor het ophalen van alle producten uit de Magazijn-tabel
+-- Drop procedures only if they exist
+DROP PROCEDURE IF EXISTS spGetGeleverdeProducten;
+DROP PROCEDURE IF EXISTS spGetAllLeveranciers;
 DROP PROCEDURE IF EXISTS spReadMagazijnProduct;
 
+-- Create procedures
 DELIMITER //
 
 CREATE PROCEDURE spReadMagazijnProduct()
@@ -230,10 +232,51 @@ BEGIN
         Product p ON m.ProductId = p.Id
     ORDER BY p.Barcode ASC;
 END //
+
+CREATE PROCEDURE spGetAllLeveranciers()
+BEGIN
+    SELECT 
+        l.Id,
+        l.Naam,
+        l.Contactpersoon,
+        l.Leveranciernummer,
+        l.Mobiel,
+        COUNT(DISTINCT ppa.ProductId) AS AantalProducten
+    FROM 
+        Leverancier l
+    LEFT JOIN 
+        ProductPerLeverancier ppa ON l.Id = ppa.LeverancierId
+    GROUP BY 
+        l.Id, l.Naam, l.Contactpersoon, l.Leveranciernummer, l.Mobiel
+    ORDER BY 
+        AantalProducten DESC;
+END //
+
+CREATE PROCEDURE spGetGeleverdeProducten(IN leverancierId INT)
+BEGIN
+    SELECT 
+        p.Id,
+        p.Naam,
+        p.Barcode,
+        p.VerpakkingsEenheid, -- Ensure this column is selected
+        m.AantalAanwezig,
+        MAX(pl.DatumLevering) AS DatumLaatsteLevering
+    FROM 
+        Product p
+    JOIN 
+        ProductPerLeverancier pl ON p.Id = pl.ProductId
+    JOIN 
+        Magazijn m ON p.Id = m.ProductId
+    WHERE 
+        pl.LeverancierId = leverancierId
+    GROUP BY 
+        p.Id, p.Naam, p.Barcode, p.VerpakkingsEenheid, m.AantalAanwezig
+    ORDER BY 
+        m.AantalAanwezig DESC;
+END //
 DELIMITER ;
 
 COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
