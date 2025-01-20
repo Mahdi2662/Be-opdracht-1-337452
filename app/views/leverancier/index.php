@@ -54,7 +54,6 @@
                                     <td><?= $leverancier->Mobiel ?></td>
                                     <td><?= $leverancier->AantalProducten ?></td>
                                     <td class='text-center'>
-                                        <!-- Link naar geleverde producten -->
                                         <a href='<?= URLROOT . "/leverancier/geleverdeProducten/$leverancier->Id" ?>' class='btn btn-info'>
                                             <i class='bi bi-box-seam'></i>
                                         </a>
