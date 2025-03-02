@@ -65,7 +65,7 @@
                                 <tr>
                                     <td><?= $product->Naam ?></td>
                                     <td><?= $product->AantalAanwezig ?></td>
-                                    <td><?= $product->VerpakkingsEenheid?></td>
+                                    <td><?= $product->VerpakkingsEenheid ?></td>
                                     <td><?= date('d-m-Y', strtotime($product->DatumLaatsteLevering)) ?></td>
                                     <td class='text-center'>
                                         <!-- Knop voor nieuwe levering -->
